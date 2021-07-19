@@ -1,0 +1,55 @@
+@use 'colors';
+@use 'dimensions';
+
+.logo {
+  &-container {
+    display: none;
+    font-size: 14px;
+    line-height: 140%;
+
+    @media screen and (min-width: #{dimensions.$screenSmall}) {
+      display: flex;
+    }
+
+    @media screen and (min-width: #{dimensions.$screenMedium}) {
+      font-size: 16px;
+    }
+
+    * {
+      margin: 0;
+    }
+
+  }
+
+  &-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: colors.$darkYellow;
+  }
+
+  &-image {
+    &-container {
+      width: 3rem;
+
+      * {
+        width: 100%;
+      }
+
+      @media screen and (min-width: #{dimensions.$screenMedium}) {
+        width: 5rem;
+      }
+    }
+  }
+
+  &-text {
+    &-container {
+      flex-direction: column;
+      width: 6rem;
+
+      @media screen and (min-width: #{dimensions.$screenMedium}) {
+        width: auto;
+      }
+    }
+  }
+}

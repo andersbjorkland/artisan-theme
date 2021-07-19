@@ -1,0 +1,26 @@
+<!-- Header bar -->
+<header class="section">
+
+    <div class="content-container flex">
+        {# the values in the 'config' object are taken directly from the file app/config/config.yml #}
+        <div class="logo-container">
+            <a class="logo-link" href="{{ path('homepage') }}">
+                <div class="logo-image-container">
+                    <img src="{{ asset('images/Logo.svg') }}" alt="Logo">
+                </div>
+                {# config.get('general/sitename') #}
+                <div class="logo-text-container">
+                    <p class="font--lg logo-title">{{ theme.logo_title }}</p>
+                    <p class="font--sm logo-subtitle">{{ theme.logo_subtitle }}</p>
+                </div>
+            </a>
+        </div>
+
+
+        {{ menu(
+            name = 'main',
+            template = 'partials/_sub_menu_header.twig',
+            withsubmenus = false
+        ) }}
+    </div>
+</header>

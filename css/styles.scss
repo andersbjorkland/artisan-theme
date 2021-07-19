@@ -1,0 +1,38 @@
+@use 'colors';
+
+@import 'button';
+@import 'decor';
+@import 'dimensions';
+@import 'flex';
+@import 'fonts';
+@import 'footer';
+@import 'gallery';
+@import 'logo';
+@import 'header';
+@import 'hero';
+@import 'margins';
+@import 'overlay';
+@import 'sections';
+@import 'text';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container {
+  margin: 0;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.aria-hidden {
+  position: absolute;
+  left: -2000px;
+}

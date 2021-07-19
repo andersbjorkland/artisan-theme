@@ -1,0 +1,70 @@
+{% extends 'partials/_master.twig' %}
+
+{% setcontent exhibition = 'exhibitions' latest returnsingle %}
+{% setcontent works = 'works' latest limit 3 %}
+
+{% block main %}
+    <h1 class="aria-hidden">{{ config.get('general/sitename') }}</h1>
+
+    {% if exhibition is not empty %}
+    <section class="section hero-section">
+        <div class="content-container hero-container">
+            <h2 class="hero-heading">Exhibition</h2>
+            <div class="hero-blurb">
+                <div class="hero-blurb-header">
+                    <h3>{{ exhibition.title }}</h3>
+                    <p class="font--semi-bold">{{ exhibition.location.title }}</p>
+                    <p class="font--semi-bold">{{
+                        exhibition.period.start|date('d F') ~ ' - ' ~ exhibition.period.end|date('d F Y')
+                    }}</p>
+                </div>
+                <div class="mb-1 hero-teaser">{{ exhibition.teaser }}</div>
+                <div class="button-container"><a href="#" class="button button--light-brown button-hover--difference">LEARN MORE</a></div>
+            </div>
+            <div class="hero-image-container">
+                {{ exhibition.image|thumbnail(width=400)|showimage() }}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if works is not empty %}
+    <section class="section section--bright h-full">
+        <img class="decor decor-tl" src="{{ asset('images/splints-decor.png') }}" alt="">
+        <img class="decor decor-br decor-flip" src="{{ asset('images/splints-decor.png') }}" alt="">
+        <div class="content-container">
+            <h2 class="section-heading">Selected works</h2>
+            <div class="gallery gallery--3">
+                {% for work in works %}
+                    {% if loop.index0 == 1 %}
+                        <a href="#" class="overlay">
+                            {{ work.image|thumbnail(height=550)|showimage() }}
+                            <div class="button-container button-container--overlay">
+                                <div class="button button--overlay button-hover--bright flex"><div class="m-auto">{{ work.title }}</div><div>></div></div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="#" class="overlay">
+                            {{ work.image|thumbnail(height=360)|showimage() }}
+                            <div class="button-container button-container--overlay">
+                                <div class="button button--overlay button-hover--bright flex"><div class="m-auto">{{ work.title }}</div><div>></div></div>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="flex justify-end mt-3">
+                <a class="flex align-center" href="#">Explore the gallery <span class="font--xl lh--1">→</span></a>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <section class="section h-full">
+        <div class="content-container">
+            <h2 class="section-heading">The latest on Instagram</h2>
+
+            {% include "@instagram-display-extension/_div.html.twig" %}
+        </div>
+    </section>
+{% endblock main %}
+

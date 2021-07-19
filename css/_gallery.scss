@@ -1,0 +1,54 @@
+@use 'dimensions';
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  transition: 1s;
+
+  img {
+    height: 14rem;
+    max-width: 100%;
+    display: block;
+
+    @media screen and (min-width: #{dimensions.$screenSmall}) {
+      height: 38vw;
+
+    }
+
+    @media screen and (min-width: #{dimensions.$screenMedium}) {
+      height: 100%;
+
+      filter: sepia(40%);
+      transition: 0.5s;
+    }
+
+  }
+
+  @media screen and (min-width: #{dimensions.$screenMedium}) {
+    justify-content: space-around;
+  }
+
+  &--3 {
+
+    @media screen and (min-width: #{dimensions.$screenMedium}) {
+
+      &>*:nth-child(1){
+        margin-top: 3rem;
+        margin-bottom: auto;
+      }
+
+      &>*:nth-child(2){
+
+      }
+
+      &>*:nth-child(3){
+        margin-top: auto;
+        margin-bottom: 3rem;
+      }
+    }
+
+  }
+}

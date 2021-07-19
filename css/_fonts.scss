@@ -1,0 +1,47 @@
+@use 'dimensions';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+
+  @media screen and (min-width: #{dimensions.$screenMedium}) {
+    font-size: 16px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+}
+
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+}
+
+.font {
+  &--semi-bold {
+    font-weight: 600;
+  }
+  &--bold {
+    font-weight: bold;
+  }
+  &--thin {
+    font-weight: lighter;
+  }
+
+  &--lg {
+    font-size: 1.1em;
+  }
+  &--sm {
+    font-size: 0.8em;
+  }
+  &--xl {
+    font-size: 1.6em;
+  }
+}

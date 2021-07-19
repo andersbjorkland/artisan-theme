@@ -1,0 +1,38 @@
+@use 'colors';
+@use 'dimensions';
+
+header {
+  height: dimensions.$headerHeight;
+  padding: 2rem 0 0 0;
+
+  @media screen and (min-width: #{dimensions.$screenMedium}) {
+    padding: 2rem 0;
+  }
+}
+
+nav {
+  align-self: center;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 0.5rem;
+  column-gap: 1rem;
+
+  a {
+    color: colors.$lightGrey;
+    font-weight: normal;
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+
+  select {
+    background-color: colors.$lightGrey;
+    color: colors.$closeBlack;
+    margin-left: auto;
+    max-width: 6rem;
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+}

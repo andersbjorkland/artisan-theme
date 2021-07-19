@@ -1,0 +1,17 @@
+.decor {
+  position: absolute;
+
+  &-tl {
+    top: 3rem;
+    left: 1rem;
+  }
+
+  &-br {
+    bottom: 3rem;
+    right: 1rem;
+  }
+
+  &-flip {
+    transform: scaleX(-1) scaleY(-1);
+  }
+}

@@ -1,0 +1,79 @@
+@use 'colors';
+
+.button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  position: relative;
+
+  &-container {
+    overflow: hidden;
+    display: flex;
+
+    &--overlay {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+  }
+
+  &--light-brown {
+    color: colors.$closeBlack;
+    background-color: colors.$lighterBrown;
+  }
+
+  &--overlay {
+    text-align: center;
+    color: colors.$closeBlack;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+
+    &:hover {
+
+      &::before {
+        left: 0;
+      }
+    }
+  }
+
+  &:hover {
+
+    &::before {
+      left: 0;
+    }
+  }
+
+  &-hover{
+    &--bright {
+      &::before {
+        transition: 0.3s;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        mix-blend-mode: overlay;
+
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &--difference {
+      &::before {
+        transition: 0.3s;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        color: white;
+        background-color: colors.$lighterBrown;
+        mix-blend-mode: difference;
+
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+  }
+
+}
